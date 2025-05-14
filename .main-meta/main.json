@@ -4,8 +4,8 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f56q71-mtch9010-dynamic-cfg-change",
-        "version": " ",
-        "displayName": "",
+        "version": "1.0.0",
+        "displayName": "MTCH9010 Dynamic Configuration Change Using the PIC18F56Q71 Microcontroller with MCC Melody",
         "projectName": "pic18f56q71-mtch9010-dynamic-cfg-change",
         "shortDescription": "This repository contains two MPLAB X projects demonstrating dynamic configuration changes for MTCH9010 using Enhanced Configuration Mode or IO configuration pins, with the PIC18F56Q71 microcontroller as the host device.",
         "ide": {
@@ -19,12 +19,12 @@
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "1.28.451"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=5.7.1"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -37,8 +37,16 @@
             }
         },
         "author": "Gabriel Urs",
-        "peripherals": [],
-        "keywords": [],
+        "peripherals": ["UART",
+                        "DAC",
+                        "OPA",
+                        "GPIO"
+                        ],
+        "keywords": ["Capacitive Touch",
+                     "Sensor",
+                     "GPIO",
+                     "MCC Melody"
+    ],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
