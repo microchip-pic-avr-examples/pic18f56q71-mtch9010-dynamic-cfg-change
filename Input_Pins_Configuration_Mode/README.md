@@ -14,8 +14,8 @@ This MPLAB® X project shows how to dynamically change the configuration for MTC
 
 ## Software Used
 - [MPLAB X IDE v6.25 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
-- [MPLAB® XC8 v3.0 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
-- [PIC18F-Q_DFP 1.28.451](https://packs.download.microchip.com/)
+- [MPLAB® XC8 v3.00 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
+- [PIC18F-Q_DFP 1.28.451 or newer](https://packs.download.microchip.com/)
 
 ## Hardware Used
 
@@ -30,29 +30,29 @@ To program the Curiosity Nano board with this MPLAB X project, follow the steps 
 
 ## Concept
 
-The MTCH9010 can be configured using the configuration input pins. This input pins are read when the device is started, meaning that, for changing the configuration, these pins should be configured accordingly with the desired parameters and then a reset operation should be done to configure the device with the new parameters. To use this configuration mode, the System Lock pin should be set high (disabled).
+MTCH9010 can be configured using the configuration input pins. These input pins are read when the device is started, meaning that, for changing the configuration, these pins should be configured accordingly with the desired parameters and then a Reset operation should be done to configure the device with the new parameters. To use this configuration mode, the System Lock pin should be set high (disabled).
 
 The Operation Mode, Extended Output, Enhanced Configuration Mode and System Lock inputs are
-set by connecting the pin to VDD or to GND. The Sleep Period and Liquid Detection Threshold inputs are set by applying a voltage level to the respective configuration pin. These voltages are generated using the DAC1 and DAC2 peripherals. The PIC18F56Q71 microcontroller can use only one output pin for all the DAC peripherals meaning that is not possible to generated the desired voltage for Threshold and Sleep on two output pins using only the DAC peripherals. The solution implemented uses the DAC1 peripheral for Threshold voltage and its output is directly connected on the `RA2` pin. For the Sleep time voltage, the DAC2 peripheral is used to generate the desired voltage as the internal positive input for the OPA2 peripheral. The OPA2 is used in Unity Gain Buffer mode and the output is connected on the `RB1` pin.
+set by connecting the pin to VDD or to GND. The Sleep Period and Liquid Detection Threshold inputs are set by applying a voltage level to the respective configuration pin. These voltages are generated using the DAC1 and DAC2 peripherals. The PIC18F56Q71 microcontroller can use only one output pin for all the DAC peripherals meaning that is not possible to generated the desired voltage for Threshold and Sleep on two output pins using only the DAC peripherals. The solution implemented uses the DAC1 peripheral for Threshold voltage and its output is directly connected on the `RA2` pin. For the Sleep time voltage, the DAC2 peripheral is used to generate the desired voltage as the internal positive input for the OPA2 peripheral. The OPA2 is used in Unity Gain Buffer mode and the output is connected to the `RB1` pin.
 
-In this code example, the `MTCH9010.h` and `MTCH9010.c` files contains the implementation of the functions used to configure the device using the configuration input pins. The `mtch9010_config_t` structure is used to simply define the parameters of the configuration that need to be configured.  The `MTCH9010_Config(mtch9010_config_t configData)` function can be used to configure the device. This function set the pins and the output voltage for DAC1 and DAC2 and reset the device to change its configuration.
+In this code example, the `MTCH9010.h` and `MTCH9010.c` files contain the implementation of the functions used to set the parameters of the desired configuration. The mtch9010_config_t structure is used to simply define these parameters. The MTCH9010_Config(mtch9010_config_t configData) function can be used to configure the device: this function sets the pins and the output voltage for DAC1 and DAC2 and resets the device to change its configuration.`
 
-This example contains two configurations of the MTCH9010. User can switch between configurations using the on-board button of the PIC18F56Q71 Curiosity Nano. The parameters of the two configuration are shown below:
+This example contains two configurations of the MTCH9010. The user can switch between configurations using the on-board button of the PIC18F56Q71 Curiosity Nano. The parameters of the two configurations are shown below:
 - Configuration 1:
-    - SYS LOCK: OFF
-	- CFG Mode: OFF
-    - Sleep time: 2s
-    - Operation mode: Capacitive
-	- Extended output mode: Disabled
-	- Threshold: 0.25 V
+    - SYS_LK: Disabled
+	- CFG_EN: Disabled
+    - Sleep Period: 2 s
+    - Operation Mode: Capacitive
+	- Extended Output Mode: Disabled
+	- Liquid Detection Threshold: 0.25 V
 
 - Configuration 2:
-    - SYS LOCK: OFF
-	- CFG Mode: OFF
-    - Sleep time: 4s
-    - Operation mode: Capacitive
-	- Extended output mode: Disabled
-	- Threshold: 1.3 V
+    - SYS_LK: Disabled
+	- CFG_EN: Disabled
+    - Sleep Period: 4 s
+    - Operation Mode: Capacitive
+	- Extended Output Mode: Disabled
+	- Liquid Detection Threshold: 1.3 V
 
 ## Setup
 
@@ -94,7 +94,7 @@ The following peripheral and clock configurations are set up using the MPLAB Cod
 6. Pins
     <br><img src="images/mcc-pins.png" width="600">
 
-The following pins are used to control the MTCH9010:
+The following pins are used to control MTCH9010:
 
 | Pin | Configuration  |          Description         | Custom name |
 | :-: | :------------: | :--------------------------: |:-----------:|
@@ -109,12 +109,12 @@ The following pins are used to control the MTCH9010:
 
 ## Demo
 
-The following diagram shows the connection realised between the PIC18F56Q71 microcontroller and the MTCH9010 for the configurations presented in this example. The MTCH9010 is powered from a 3.3 V power supply.
+The following diagram shows the connection between the PIC18F56Q71 microcontroller and MTCH9010 for the configurations presented in this example. MTCH9010 is powered from a 3.3 V power supply.
 <br><img src="images/example-circuit.png" width="600">
 
 ## Summary
 
-This project shows how to dynamically change the configuration of the MTCH9010 with the configuration input pins using the PIC18F56Q71 microcontroller as a host device.
+This project shows how to dynamically change the configuration of MTCH9010 with the configuration input pins using the PIC18F56Q71 microcontroller as a host device.
 
 ##  How to Program the Curiosity Nano Board 
 
@@ -122,14 +122,14 @@ This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device w
 
 1.  Connect the board to the PC.
 
-2.  Open the Example_Project.X project in MPLAB X IDE.
+2.  Open the `Example_Project.X` project in MPLAB X IDE.
 
-3.  Set the Example_Project.X project as main project.
+3.  Set the `Example_Project.X` project as main project.
     <br>Right click the project in the **Projects** tab and click **Set as Main Project**.
     <br><img src="images/Program_Set_as_Main_Project.png" width="600">
 
-4.  Clean and build the Example_Project.X project.
-    <br>Right click the **Example_Project.X** project and select **Clean and Build**.
+4.  Clean and build the `Example_Project.X` project.
+    <br>Right click the `Example_Project.X` project and select **Clean and Build**.
     <br><img src="images/Program_Clean_and_Build.png" width="600">
 
 5.  Select **PICxxxxx Curiosity Nano** in the Connected Hardware Tool section of the project settings:

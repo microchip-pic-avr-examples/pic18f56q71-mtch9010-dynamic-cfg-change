@@ -4,7 +4,7 @@
 
 # MTCH9010 Dynamic Configuration Change Using the PIC18F56Q71 Microcontroller with MCC Melody
 
-This repository provides two MPLAB® X project that shows how to dynamically change the configuration for MTCH9010 using the Enhanged Configuration Mode or the IO configurations pins. The PIC18F56Q71 microcontroller is used as a host device to set the configuration parameters.
+This repository provides two MPLAB® X projects that show how to dynamically change the configuration for MTCH9010 using the Enhanced Configuration Mode or the configuration input pins. The PIC18F56Q71 microcontroller is used as a host device to set the configuration parameters.
 
 ## Related Documentation
 - [MTCH9010 Product Page](https://www.microchip.com/en-us/product/MTCH9010?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
@@ -14,8 +14,8 @@ This repository provides two MPLAB® X project that shows how to dynamically cha
 
 ## Software Used
 - [MPLAB X IDE v6.25 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
-- [MPLAB® XC8 v3.0 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
-- [PIC18F-Q_DFP 1.28.451](https://packs.download.microchip.com/)
+- [MPLAB® XC8 v3.00 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
+- [PIC18F-Q_DFP 1.28.451 or newer](https://packs.download.microchip.com/)
 
 ## Hardware Used
 
@@ -31,12 +31,12 @@ To program the Curiosity Nano board with this MPLAB X project, follow the steps 
 ## Concept
 
 The two projects are separated in the following folders:
-  - [<strong>Enhanced_Configuration_Mode</strong>](Enhanced_Configuration_Mode) - the folder contains the project that configure the device in Enchanged Configuration Mode
-  - [<strong>Input_Pins_Configuration_Mode</strong>](Input_Pins_Configuration_Mode) - the folder contains the project that configure the device using the configuration input pins
+  - [<strong>Enhanced_Configuration_Mode</strong>](Enhanced_Configuration_Mode) - this folder contains the project that configures the device in Enchanged Configuration Mode
+  - [<strong>Input_Pins_Configuration_Mode</strong>](Input_Pins_Configuration_Mode) - this folder contains the project that configures the device using the configuration input pins
 
 ## Summary
 
-These projects shows how to dynamically change the configuration of the MTCH9010 in Enhanged Configuration Mode or with the configuration input pins using the PIC18F56Q71 microcontroller as a host device.
+These projects show how to dynamically change the configuration of the MTCH9010 in Enhanced Configuration Mode or with the configuration input pins using the PIC18F56Q71 microcontroller as a host device.
 
 ##  How to Program the Curiosity Nano Board 
 
@@ -44,14 +44,14 @@ This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device w
 
 1.  Connect the board to the PC.
 
-2.  Open the Example_Project.X project in MPLAB X IDE.
+2.  Open the `Example_Project.X` project in MPLAB X IDE.
 
-3.  Set the Example_Project.X project as main project.
+3.  Set the `Example_Project.X` project as main project.
     <br>Right click the project in the **Projects** tab and click **Set as Main Project**.
     <br><img src="images/Program_Set_as_Main_Project.png" width="600">
 
-4.  Clean and build the Example_Project.X project.
-    <br>Right click the **Example_Project.X** project and select **Clean and Build**.
+4.  Clean and build the `Example_Project.X` project.
+    <br>Right click the `Example_Project.X` project and select **Clean and Build**.
     <br><img src="images/Program_Clean_and_Build.png" width="600">
 
 5.  Select **PICxxxxx Curiosity Nano** in the Connected Hardware Tool section of the project settings:
