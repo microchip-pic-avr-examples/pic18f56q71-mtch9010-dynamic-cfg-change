@@ -32,7 +32,7 @@ To program the Curiosity Nano board with this MPLAB X project, follow the steps 
 
 MTCH9010 can be configured using the configuration input pins. These input pins are read when the device is started, meaning that, for changing the configuration, these pins should be configured accordingly with the desired parameters and then a Reset operation should be done to configure the device with the new parameters. To use this configuration mode, the System Lock pin should be set high (disabled).
 
-The Operation Mode, Extended Output, Enhanced Configuration Mode and System Lock inputs are
+The Operation Mode, Extended Output, Enhanced Configuration mode and System Lock inputs are
 set by connecting the pin to VDD or to GND. The Sleep Period and Liquid Detection Threshold inputs are set by applying a voltage level to the respective configuration pin. These voltages are generated using the DAC1 and DAC2 peripherals. The PIC18F56Q71 microcontroller can use only one output pin for all the DAC peripherals meaning that is not possible to generated the desired voltage for Threshold and Sleep on two output pins using only the DAC peripherals. The solution implemented uses the DAC1 peripheral for Threshold voltage and its output is directly connected on the `RA2` pin. For the Sleep time voltage, the DAC2 peripheral is used to generate the desired voltage as the internal positive input for the OPA2 peripheral. The OPA2 is used in Unity Gain Buffer mode and the output is connected to the `RB1` pin.
 
 In this code example, the `MTCH9010.h` and `MTCH9010.c` files contain the implementation of the functions used to set the parameters of the desired configuration. The mtch9010_config_t structure is used to simply define these parameters. The MTCH9010_Config(mtch9010_config_t configData) function can be used to configure the device: this function sets the pins and the output voltage for DAC1 and DAC2 and resets the device to change its configuration.`
@@ -41,18 +41,18 @@ This example contains two configurations of the MTCH9010. The user can switch be
 - Configuration 1:
     - SYS_LK: Disabled
 	- CFG_EN: Disabled
-    - Sleep Period: 2 s
+    - Sleep Period: 2s
     - Operation Mode: Capacitive
 	- Extended Output Mode: Disabled
-	- Liquid Detection Threshold: 0.25 V
+	- Liquid Detection Threshold: 0.25V
 
 - Configuration 2:
     - SYS_LK: Disabled
 	- CFG_EN: Disabled
-    - Sleep Period: 4 s
+    - Sleep Period: 4s
     - Operation Mode: Capacitive
 	- Extended Output Mode: Disabled
-	- Liquid Detection Threshold: 1.3 V
+	- Liquid Detection Threshold: 1.3V
 
 ## Setup
 
@@ -109,7 +109,7 @@ The following pins are used to control MTCH9010:
 
 ## Demo
 
-The following diagram shows the connection between the PIC18F56Q71 microcontroller and MTCH9010 for the configurations presented in this example. MTCH9010 is powered from a 3.3 V power supply.
+The following diagram shows the connection between the PIC18F56Q71 microcontroller and MTCH9010 for the configurations presented in this example. MTCH9010 is powered by a 3.3V power supply.
 <br><img src="images/example-circuit.png" width="600">
 
 ## Summary
@@ -118,7 +118,7 @@ This project shows how to dynamically change the configuration of MTCH9010 with 
 
 ##  How to Program the Curiosity Nano Board 
 
-This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device with an Example_Project.X. This is applicable to other projects.
+This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device with an Example_Project.X. This is applicable to other projects, too.
 
 1.  Connect the board to the PC.
 
@@ -135,7 +135,7 @@ This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device w
 5.  Select **PICxxxxx Curiosity Nano** in the Connected Hardware Tool section of the project settings:
     <br>Right click the project and click **Properties**.
     <br>Click the arrow under the Connected Hardware Tool.
-    <br>Select **PICxxxxx Curiosity Nano** (click the **SN**), click **Apply** and then click **OK**:
+    <br>Select **PICxxxxx Curiosity Nano** (click **SN**), click **Apply** and then click **OK**:
     <br><img src="images/Program_Tool_Selection.png" width="600">
 
 6.  Program the project to the board.

@@ -4,7 +4,7 @@
 
 # MTCH9010 Dynamic Enhanced Configuration Change Using the PIC18F56Q71 Microcontroller with MCC Melody
 
-This MPLAB® X project shows how to dynamically change the configuration for MTCH9010 using the Enhanced Configuration Mode. The PIC18F56Q71 microcontroller is used as a host device and the configuration is realized using the Universal Asynchronous Receiver Transmitter (UART) peripheral.
+This MPLAB® X project shows how to dynamically change the configuration for MTCH9010 using the Enhanced Configuration mode. The PIC18F56Q71 microcontroller is used as a host device and the configuration is realized using the Universal Asynchronous Receiver Transmitter (UART) peripheral.
 
 ## Related Documentation
 - [MTCH9010 Product Page](https://www.microchip.com/en-us/product/MTCH9010?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
@@ -30,7 +30,7 @@ To program the Curiosity Nano board with this MPLAB X project, follow the steps 
 
 ## Concept
 
-In Enhanced Configuration Mode, the MTCH9010 device can be configured using the UART communication protocol. To enter in this configuration mode, the following settings should be done on the MTCH9010 configuration pins:
+In Enhanced Configuration mode, the MTCH9010 device can be configured using the UART communication protocol. To enter in this configuration mode, the following settings should be done on the MTCH9010 configuration pins:
 - The SYS_LK pin should be set to high (disabled)
 - The CFG_EN pin should be set to low (enabled)
 - The UART_EN pin should be set to low (enabled)
@@ -39,13 +39,13 @@ A Reset of the device is needed after the pins are configured to enter the confi
 
 After the Reset operation, the device will send the firmware version on the serial port and then wait for the configuration commands. Each command sent should be followed by a validation key (with the ASCII code equal to 0x0D in hexadecimal system). After a command is sent, the device will respond with ACK (Acknowledge, 0x06 in hexadecimal system) or NAK (Negative Acknowledge, 0x15 in hexadecimal system) followed by the validation key. If a NAK signal is received, the command must be sent again until it is validated by the device with an ACK signal.
 
-In this code example, the `MTCH9010.h` and `MTCH9010.c` files contains the implementation of the functions used to configure the device in Enhanced Configuration Mode. The `mtch9010_config_t` structure is used to simply define the parameters of the configuration that need to be sent.  The `MTCH9010_Config(mtch9010_config_t configData)` function can be used to configure the device. This function sets the pins for configuration mode, reset the device and then send the configuration parameters using the UART1 peripheral. The function also implements a mechanism that verifies if each command is validated by the ACK signal. If it is validated, the program continues with the next command in the same way. If it is not validated, the program repeats the transmission. Each command is repeated for a maximum number of five times. After that the function returns an error code and the program blocks in an infinite loop. A message about the error code is also displayed on serial port using the UART2 peripheral.
+In this code example, the `MTCH9010.h` and `MTCH9010.c` files contains the implementation of the functions used to configure the device in Enhanced Configuration mode. The `mtch9010_config_t` structure is used to simply define the parameters of the configuration that need to be sent.  The `MTCH9010_Config(mtch9010_config_t configData)` function can be used to configure the device. This function sets the pins for configuration mode, reset the device and then send the configuration parameters using the UART1 peripheral. The function also implements a mechanism that verifies if each command is validated by the ACK signal. If it is validated, the program continues with the next command in the same way. If it is not validated, the program repeats the transmission. Each command is repeated for a maximum number of five times. After that the function returns an error code and the program blocks in an infinite loop. A message about the error code is also displayed on serial port using the UART2 peripheral.
 
 This example contains two configurations of the MTCH9010. The user can switch between configurations using the on-board button of the PIC18F56Q71 Curiosity Nano. The parameters of the two configurations are shown below:
 - Configuration 1:
     - SYS_LK: Enabled
 	- CFG_EN: Disabled
-    - Sleep Period: 2 s
+    - Sleep Period: 2s
     - Operation Mode: Capacitive
 	- Extended Output Mode: Enabled
     - Extended Output Format: Standard measurement
@@ -55,7 +55,7 @@ This example contains two configurations of the MTCH9010. The user can switch be
 - Configuration 2:
     - SYS_LK: Enabled
 	- CFG_EN: Disabled
-    - Sleep Period: 4 s
+    - Sleep Period: 4s
     - Operation Mode: Capacitive
 	- Extended Output Mode: Disabled
     - Capacitive Reference Value: Standard measurement as Reference Value
@@ -118,16 +118,16 @@ The following pins are used to control MTCH9010:
 
 ## Demo
 
-The following diagram shows the connection between the PIC18F56Q71 microcontroller and the MTCH9010 for the configurations presented in this example. The MTCH9010 is powered by 3.3 V power supply.
+The following diagram shows the connection between the PIC18F56Q71 microcontroller and MTCH9010 for the configurations presented in this example. The MTCH9010 is powered by a 3.3V power supply.
 <br><img src="images/example-circuit.png" width="600">
 
 ## Summary
 
-This project shows how to dynamically change the configuration of MTCH9010 in Enhanced Configuration Mode using the PIC18F56Q71 microcontroller as a host device.
+This project shows how to dynamically change the configuration of MTCH9010 in Enhanced Configuration mode using the PIC18F56Q71 microcontroller as a host device.
 
 ##  How to Program the Curiosity Nano Board 
 
-This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device with an Example_Project.X. This is applicable to other projects.
+This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device with an Example_Project.X. This is applicable to other projects, too.
 
 1.  Connect the board to the PC.
 
@@ -144,7 +144,7 @@ This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device w
 5.  Select **PICxxxxx Curiosity Nano** in the Connected Hardware Tool section of the project settings:
     <br>Right click the project and click **Properties**.
     <br>Click the arrow under the Connected Hardware Tool.
-    <br>Select **PICxxxxx Curiosity Nano** (click the **SN**), click **Apply** and then click **OK**:
+    <br>Select **PICxxxxx Curiosity Nano** (click **SN**), click **Apply** and then click **OK**:
     <br><img src="images/Program_Tool_Selection.png" width="600">
 
 6.  Program the project to the board.

@@ -4,7 +4,7 @@
 
 # MTCH9010 Dynamic Configuration Change Using the PIC18F56Q71 Microcontroller with MCC Melody
 
-This repository provides two MPLAB® X projects that show how to dynamically change the configuration for MTCH9010 using the Enhanced Configuration Mode or the configuration input pins. The PIC18F56Q71 microcontroller is used as a host device to set the configuration parameters.
+This repository provides two MPLAB® X projects that show how to dynamically change the configuration for MTCH9010 using the Enhanced Configuration mode or the configuration input pins. The PIC18F56Q71 microcontroller is used as a host device to set the configuration parameters.
 
 ## Related Documentation
 - [MTCH9010 Product Page](https://www.microchip.com/en-us/product/MTCH9010?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q71&utm_content=pic18f56q71-mtch9010-dynamic-cfg-change-github&utm_bu=MCU08)
@@ -31,16 +31,16 @@ To program the Curiosity Nano board with this MPLAB X project, follow the steps 
 ## Concept
 
 The two projects are separated in the following folders:
-  - [<strong>Enhanced_Configuration_Mode</strong>](Enhanced_Configuration_Mode) - this folder contains the project that configures the device in Enchanged Configuration Mode
+  - [<strong>Enhanced_Configuration_Mode</strong>](Enhanced_Configuration_Mode) - this folder contains the project that configures the device in Enchanged Configuration mode
   - [<strong>Input_Pins_Configuration_Mode</strong>](Input_Pins_Configuration_Mode) - this folder contains the project that configures the device using the configuration input pins
 
 ## Summary
 
-These projects show how to dynamically change the configuration of the MTCH9010 in Enhanced Configuration Mode or with the configuration input pins using the PIC18F56Q71 microcontroller as a host device.
+These projects show how to dynamically change the configuration of the MTCH9010 in Enhanced Configuration mode or with the configuration input pins using the PIC18F56Q71 microcontroller as a host device.
 
 ##  How to Program the Curiosity Nano Board 
 
-This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device with an Example_Project.X. This is applicable to other projects.
+This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device with an Example_Project.X. This is applicable to other projects, too.
 
 1.  Connect the board to the PC.
 
@@ -57,7 +57,7 @@ This chapter demonstrates how to use the MPLAB X IDE to program a PIC® device w
 5.  Select **PICxxxxx Curiosity Nano** in the Connected Hardware Tool section of the project settings:
     <br>Right click the project and click **Properties**.
     <br>Click the arrow under the Connected Hardware Tool.
-    <br>Select **PICxxxxx Curiosity Nano** (click the **SN**), click **Apply** and then click **OK**:
+    <br>Select **PICxxxxx Curiosity Nano** (click **SN**), click **Apply** and then click **OK**:
     <br><img src="images/Program_Tool_Selection.png" width="600">
 
 6.  Program the project to the board.

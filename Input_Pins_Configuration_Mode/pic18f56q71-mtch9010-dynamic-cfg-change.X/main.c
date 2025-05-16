@@ -72,12 +72,12 @@ int main(void)
     mtch9010_config_t mtch9010_configArray[CONFIGURATIONS_NO];
     
     mtch9010_configArray[0].op_mode = MTCH9010_OP_MODE_CAPACITIVE;
-    mtch9010_configArray[0].sleep_time = MTCH9010_SLEEP_TIME_2S;
+    mtch9010_configArray[0].sleep_period = MTCH9010_SLEEP_PERIOD_2S;
     mtch9010_configArray[0].extended_output_mode = MTCH9010_EXTENDED_OUTPUT_DISABLE;
     mtch9010_configArray[0].threshold = MTCH9010_THRESHOLD_VOLTAGE_V(0.25);
     
     mtch9010_configArray[1].op_mode = MTCH9010_OP_MODE_CAPACITIVE;
-    mtch9010_configArray[1].sleep_time = MTCH9010_SLEEP_TIME_4S;
+    mtch9010_configArray[1].sleep_period = MTCH9010_SLEEP_PERIOD_4S;
     mtch9010_configArray[1].extended_output_mode = MTCH9010_EXTENDED_OUTPUT_DISABLE;
     mtch9010_configArray[1].threshold = MTCH9010_THRESHOLD_VOLTAGE_V(1.3);
     

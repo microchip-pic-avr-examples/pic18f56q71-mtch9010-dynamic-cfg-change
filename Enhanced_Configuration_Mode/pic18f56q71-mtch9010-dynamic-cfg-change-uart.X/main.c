@@ -71,22 +71,22 @@ void Print_Config_Status(mtch9010_config_status_t status)
             printf("Configuration done\n\r");
             break;
         case OP_MODE_ERROR:
-            printf("Operation mode error\n\r");
+            printf("Operation Mode error\n\r");
             break;
-        case SLEEP_TIME_ERROR:
-            printf("Sleep time error\n\r");
+        case SLEEP_PERIOD_ERROR:
+            printf("Sleep Period error\n\r");
             break;   
         case EXTENDED_OUTPUT_MODE_ERROR:
-            printf("Extended output mode error\n\r");
+            printf("Extended Output Mode error\n\r");
             break;
         case EXTENDED_OUTPUT_FORMAT_ERROR:
-            printf("Extended output format error\n\r");
+            printf("Extended Output Format error\n\r");
             break;
         case REFERENCE_VALUE_ERROR:
-            printf("Reference value error\n\r");
+            printf("Reference Value error\n\r");
             break;
         case REFERENCE_CUSTOM_ERROR:
-            printf("Reference custom value error\n\r");
+            printf("Reference Custom Value error\n\r");
             break;
         case THRESHOLD_ERROR:
             printf("Threshold error\n\r");
@@ -105,14 +105,14 @@ int main(void)
     mtch9010_config_t mtch9010_configArray[CONFIGURATIONS_NO];
     
     mtch9010_configArray[0].op_mode = MTCH9010_OP_MODE_CAPACITIVE;
-    mtch9010_configArray[0].sleep_time = MTCH9010_SLEEP_TIME_2S;
+    mtch9010_configArray[0].sleep_period = MTCH9010_SLEEP_PERIOD_2S;
     mtch9010_configArray[0].extended_output_mode = MTCH9010_EXTENDED_OUTPUT_ENABLE;
     mtch9010_configArray[0].extended_output_format = MTCH9010_EXTENDED_OUTPUT_STANDARD;
     mtch9010_configArray[0].reference_value = MTCH9010_REF_VALUE_STANDARD;
     mtch9010_configArray[0].threshold = 300;
     
     mtch9010_configArray[1].op_mode = MTCH9010_OP_MODE_CAPACITIVE;
-    mtch9010_configArray[1].sleep_time = MTCH9010_SLEEP_TIME_4S;
+    mtch9010_configArray[1].sleep_period = MTCH9010_SLEEP_PERIOD_4S;
     mtch9010_configArray[1].extended_output_mode = MTCH9010_EXTENDED_OUTPUT_DISABLE;
     mtch9010_configArray[1].reference_value = MTCH9010_REF_VALUE_STANDARD;
     mtch9010_configArray[1].threshold = 2000;

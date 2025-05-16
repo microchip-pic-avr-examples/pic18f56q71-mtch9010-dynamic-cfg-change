@@ -36,8 +36,8 @@
 void MTCH9010_Init_Pins(void)
 {
     RESET_SetHigh(); // RESET: OFF
-    CFG_EN_SetHigh(); // CFG Mode: OFF
-    SYS_LK_SetLow(); // SYS Lock: ON
+    CFG_EN_SetHigh(); // CFG_EN: Disabled
+    SYS_LK_SetLow(); // SYS_LK: Enabled
 }
 
 void MTCH9010_Receive_Firmare_Version(char *firmwareVersion)
@@ -123,8 +123,8 @@ mtch9010_config_status_t MTCH9010_Config(mtch9010_config_t configData)
     uint16_t receivedData;
             
     // Configure CFG_EN pin to enter Enhanged Configuration Mode after reset
-    CFG_EN_SetLow(); // CFG Mode: ON
-    SYS_LK_SetHigh(); // SYS LOCK: OFF
+    CFG_EN_SetLow(); // CFG_EN: Enabled
+    SYS_LK_SetHigh(); // SYS_LK: Disabled
     UART_EN_SetLow(); // Enable UART
                     
     // Reset MTCH9010
@@ -135,7 +135,7 @@ mtch9010_config_status_t MTCH9010_Config(mtch9010_config_t configData)
     // Read firmware version
     MTCH9010_Receive_Firmare_Version(firmwareVersion);
     
-    // Send Operation mode
+    // Send Operation Mode
     repeatCommand = 0;
     do
     {
@@ -146,15 +146,15 @@ mtch9010_config_status_t MTCH9010_Config(mtch9010_config_t configData)
         MTCH9010_Send_Command(configData.op_mode);
     } while(MTCH9010_Receive_ACK_NAK() != ACK);
        
-    // Send Sleep time
+    // Send Sleep Period
     repeatCommand = 0;
     do
     {
         if(++repeatCommand == (MAX_COMMAND_REPEAT + 1)) {
-            return SLEEP_TIME_ERROR;
+            return SLEEP_PERIOD_ERROR;
         }
         
-        MTCH9010_Send_Command(configData.sleep_time);
+        MTCH9010_Send_Command(configData.sleep_period);
     } while(MTCH9010_Receive_ACK_NAK() != ACK);
     
     // Send Extended Output Mode
@@ -245,9 +245,9 @@ mtch9010_config_status_t MTCH9010_Config(mtch9010_config_t configData)
         MTCH9010_Send_Command(configData.threshold);
     } while(MTCH9010_Receive_ACK_NAK() != ACK);
     
-    // Configure CFG_EN pin to exit Enhanged Configuration Mode after reset
-    CFG_EN_SetHigh(); // CFG Mode: OFF
-    SYS_LK_SetLow(); // SYS Lock: ON
+    // Restore CFG_EN and SYS_LK pins after the parameters are sent
+    CFG_EN_SetHigh(); // CFG_EN: Disabled
+    SYS_LK_SetLow(); // SYS_LK: Enabled
     
     // Verify if the UART should be disabled
     if(configData.extended_output_mode == MTCH9010_EXTENDED_OUTPUT_DISABLE)

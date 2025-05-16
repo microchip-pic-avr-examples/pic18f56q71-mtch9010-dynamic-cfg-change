@@ -35,10 +35,10 @@
 
 void MTCH9010_Config(mtch9010_config_t configData)
 {
-    // SYS LOCK: OFF
+    // SYS_LK: Disabled
     SYS_LK_SetHigh();
     
-    // CFG Mode: OFF
+    // CFG_EN: Disabled
     CFG_EN_SetHigh();
     
     // Set Operation mode
@@ -51,10 +51,10 @@ void MTCH9010_Config(mtch9010_config_t configData)
         OP_MODE_SetHigh();
     }
     
-    // Set Sleep time
-    DAC2_SetOutput(configData.sleep_time);
+    // Set Sleep Period
+    DAC2_SetOutput(configData.sleep_period);
     
-    // Set Extended output mode
+    // Set Extended Output Mode
     if(configData.extended_output_mode == MTCH9010_EXTENDED_OUTPUT_ENABLE)
     {
         UART_EN_SetLow();

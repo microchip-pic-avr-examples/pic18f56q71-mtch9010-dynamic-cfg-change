@@ -33,16 +33,16 @@
 #define MTCH9010_OP_MODE_CONDUCTIVE             0
 #define MTCH9010_OP_MODE_CAPACITIVE             1
 
-#define MTCH9010_SLEEP_TIME_WU                  0
-#define MTCH9010_SLEEP_TIME_1S                  (1UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_2S                  (2UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_4S                  (3UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_8S                  (4UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_16S                 (5UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_32S                 (6UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_64S                 (7UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_128S                (8UL * DAC2_MAX_VALUE / 9UL)
-#define MTCH9010_SLEEP_TIME_256S                (9UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_WU                0
+#define MTCH9010_SLEEP_PERIOD_1S                (1UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_2S                (2UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_4S                (3UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_8S                (4UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_16S               (5UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_32S               (6UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_64S               (7UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_128S              (8UL * DAC2_MAX_VALUE / 9UL)
+#define MTCH9010_SLEEP_PERIOD_256S              (9UL * DAC2_MAX_VALUE / 9UL)
 
 #define MTCH9010_EXTENDED_OUTPUT_ENABLE         0
 #define MTCH9010_EXTENDED_OUTPUT_DISABLE        1
@@ -52,7 +52,7 @@
 typedef struct
 {
     uint8_t op_mode;
-    uint8_t sleep_time;
+    uint8_t sleep_period;
     uint8_t extended_output_mode;
     uint16_t threshold;        
 } mtch9010_config_t;

@@ -35,16 +35,16 @@
 #define MTCH9010_OP_MODE_CAPACITIVE         0
 #define MTCH9010_OP_MODE_CONDUCTIVE         1
 
-#define MTCH9010_SLEEP_TIME_WU              0
-#define MTCH9010_SLEEP_TIME_1S              1
-#define MTCH9010_SLEEP_TIME_2S              2
-#define MTCH9010_SLEEP_TIME_4S              3
-#define MTCH9010_SLEEP_TIME_8S              4
-#define MTCH9010_SLEEP_TIME_16S             5
-#define MTCH9010_SLEEP_TIME_32S             6
-#define MTCH9010_SLEEP_TIME_64S             7
-#define MTCH9010_SLEEP_TIME_128S            8
-#define MTCH9010_SLEEP_TIME_256S            9
+#define MTCH9010_SLEEP_PERIOD_WU            0
+#define MTCH9010_SLEEP_PERIOD_1S            1
+#define MTCH9010_SLEEP_PERIOD_2S            2
+#define MTCH9010_SLEEP_PERIOD_4S            3
+#define MTCH9010_SLEEP_PERIOD_8S            4
+#define MTCH9010_SLEEP_PERIOD_16S           5
+#define MTCH9010_SLEEP_PERIOD_32S           6
+#define MTCH9010_SLEEP_PERIOD_64S           7
+#define MTCH9010_SLEEP_PERIOD_128S          8
+#define MTCH9010_SLEEP_PERIOD_256S          9
 
 #define MTCH9010_EXTENDED_OUTPUT_DISABLE    0
 #define MTCH9010_EXTENDED_OUTPUT_ENABLE     1
@@ -61,7 +61,7 @@
 typedef struct
 {
     uint8_t op_mode;
-    uint8_t sleep_time;
+    uint8_t sleep_period;
     uint8_t extended_output_mode;
     uint8_t extended_output_format;
     uint8_t reference_value;
@@ -73,7 +73,7 @@ typedef enum
 {
     CONFIG_DONE = 0,
     OP_MODE_ERROR,
-    SLEEP_TIME_ERROR,
+    SLEEP_PERIOD_ERROR,
     EXTENDED_OUTPUT_MODE_ERROR,
     EXTENDED_OUTPUT_FORMAT_ERROR,
     REFERENCE_VALUE_ERROR,

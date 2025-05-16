@@ -7,7 +7,7 @@
         "version": "1.0.0",
         "displayName": "MTCH9010 Dynamic Configuration Change Using the PIC18F56Q71 Microcontroller with MCC Melody",
         "projectName": "pic18f56q71-mtch9010-dynamic-cfg-change",
-        "shortDescription": "This repository contains two MPLAB X projects demonstrating dynamic configuration changes for MTCH9010 using Enhanced Configuration Mode or IO configuration pins, with the PIC18F56Q71 microcontroller as the host device.",
+        "shortDescription": "This repository contains two MPLAB X projects demonstrating dynamic configuration changes for MTCH9010 using Enhanced Configuration mode or configuration input pins, with the PIC18F56Q71 microcontroller as the host device.",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=6.25.0"
