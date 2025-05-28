@@ -56,11 +56,7 @@ volatile bool buttonPressed = false;
 
 void Button_Handler(void)
 {
-    __delay_ms(10);
-    if(~USER_BUTTON_GetValue() & 0x01)
-    {
-        buttonPressed = true;
-    }
+    buttonPressed = true;
 }
 
 void Print_Config_Status(mtch9010_config_status_t status)
@@ -136,7 +132,11 @@ int main(void)
     {
         if(buttonPressed == true)
         {
-            cfgMode = true;
+            __delay_ms(10); // Delay for debouncing
+            if(~USER_BUTTON_GetValue() & 0x01) // Verify if the button is still pressed
+            {
+                cfgMode = true;
+            }
             
             INTERRUPT_GlobalInterruptDisable(); 
             buttonPressed = false;

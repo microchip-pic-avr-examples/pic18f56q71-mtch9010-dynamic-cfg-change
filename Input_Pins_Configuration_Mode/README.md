@@ -37,7 +37,7 @@ set by connecting the pin to VDD or to GND. The Sleep Period and Liquid Detectio
 
 In this code example, the `MTCH9010.h` and `MTCH9010.c` files contain the implementation of the functions used to set the parameters of the desired configuration. The mtch9010_config_t structure is used to simply define these parameters. The MTCH9010_Config(mtch9010_config_t configData) function can be used to configure the device: this function sets the pins and the output voltage for DAC1 and DAC2 and resets the device to change its configuration.`
 
-This example contains two configurations of the MTCH9010. The user can switch between configurations using the on-board button of the PIC18F56Q71 Curiosity Nano. The parameters of the two configurations are shown below:
+This example contains two configurations of the MTCH9010. The user can switch between configurations using the on-board button of the PIC18F56Q71 Curiosity Nano. An Interrupt-on-Change (IOC) is generated on the negative edge of the button input. After the interrupt occurs, a debouncing mechanism is implemented using a software delay. The state of the button is verified in the main loop after a 10 ms delay to determine if the pressed state is maintained. The parameters of the two configurations are shown below:
 - Configuration 1:
     - SYS_LK: Disabled
 	- CFG_EN: Disabled

@@ -5,7 +5,7 @@
  * 
  * @defgroup mtch9010
  *
- * @brief This file contains the functions used to configure MTCH9010 in GPIO Configuration Mode.
+ * @brief This file contains the functions used to configure MTCH9010 using Configuration Input Pins.
 */
 
 /*
